@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        canvas{
+            background-color: black;
+        }
+        body{
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <!-- 获取画布对象 -->
+    <script>
+        var myCanvas = document.querySelector('#canvas')
+        // 因为所有的星星要占满全屏，所以使用js来设置canvas的宽高
+        myCanvas.width = document.documentElement.clientWidth;
+        myCanvas.height = document.documentElement.clientHeight;
+        // 星星的坐标
+        var x = parseInt(Math.random()* myCanvas.width);
+        var y = parseInt(Math.random()* myCanvas.height);
+        // 设置星星的速度
+        var speed_x = (1 + parseInt(Math.random() * 3))* Math.pow(-1,parseInt(Math.random() * 10))
+        var speed_y = (1 + parseInt(Math.random() * 3)) * Math.pow(-1,parseInt(Math.random() * 10))  
+        // 获取画笔
+        var ctx = myCanvas.getContext('2d');
+        // 画星星---白色的实心小圆点
+        // 设置填充色
+        ctx.fillStyle = 'white';
+
+        // 开始画
+        circle(x,y);
+
+        // 让星星移动
+        setInterval(function(){
+            // 清除图像
+            ctx.clearRect(0,0,myCanvas.width,myCanvas.height)
+            // 改变圆心坐标
+            x += speed_x;
+            y += speed_y;
+            // 判断边界
+            speed_x = x < 0 || x > myCanvas.width ? speed_x : speed_x;
+            speed_y = x < 0 || x > myCanvas.height ? speed_y : speed_y;
+            // 重绘
+            circle(x,y);
+        },100);
+
+        // 画圆
+        function circle(x,y){
+            var r = 1;
+            // 开启路径
+            ctx.beginPath();
+            // 画圆
+            ctx.arc(x,y,r,0,Math.PI*2);
+            // 关闭路径
+            ctx.closePath();
+            ctx.fill();
+        }
+    </script>
+</body>
+</html>

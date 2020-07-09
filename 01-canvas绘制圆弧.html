@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        canvas{
+            background-color: red;
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script>
+        // 获取画笔
+        // 获取canvas对象
+        var myCanvas = document.getElementById('myCanvas')
+        // console.log(myCanvas)
+        var ctx = myCanvas.getContext('2d')
+        // console.log(cxt)
+        // 画圆弧
+        // 开启路径
+        ctx.beginPath()
+        // ctx.arc(x,y,r,start,deg,bool)
+        // 参数：x圆心的x坐标
+        //       y圆心的y坐标
+        //       r是圆的半径
+        //       start是圆的开始角度，默认为0,水平向右
+        //       deg结束角的角度，以Math.PI*2以π的方式进行计算
+        //       bool是否逆时针
+
+
+        ctx.arc(250,150,100,0,Math.PI/2,false)
+        // 关闭路径
+        ctx.closePath()
+        // 填充颜色
+        ctx.fill()
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        canvas{
+            display: block;
+            margin: 0 auto;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="700" height="400"></canvas>
+    <!-- 获取画布对象 -->
+    <!-- 矩形只需要两个点，开始点和结束点，4个参数:sx,sy是开始点的位置；width，height是矩形的宽高 -->
+    <script>
+        var myCanvas = document.querySelector('#canvas')
+        // 获取画笔
+        var ctx = myCanvas.getContext('2d')
+        // 绘制描边矩形
+        ctx.strokeRect(0,0,100,100)
+        // 绘制填充矩形
+        ctx.fillRect(100,100,100,100)
+        ctx.strokeRect(200,200,100,100)
+        ctx.fillRect(300,300,100,100)
+        ctx.strokeRect(400,200,100,100)
+        ctx.fillRect(500,100,100,100)
+        ctx.strokeRect(600,0,100,100)
+    </script>
+</body>
+</html>

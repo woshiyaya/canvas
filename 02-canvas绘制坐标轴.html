@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        canvas{
+            border:1px solid red;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="400"></canvas>
+    <script>
+        // 获取元素对象
+        var myCanvas = document.querySelector('#canvas');
+        // 获取画笔
+        var ctx = myCanvas.getContext('2d')
+        // // 开启路径
+        // ctx.beginPath()
+        // // 绘制路径
+        // // 移动到0,0
+        // ctx.moveTo(0,0)
+        // // 画线
+        // ctx.lineTo(600,400)
+        // // 设置描边色
+        // ctx.strokeStyle = 'blue'
+        // // 描边
+        // ctx.stroke()
+        // // 关闭路径
+        // ctx.closePath()
+        // // 字体属性
+        // ctx.font = '20px 楷体'
+        // // 写字
+        // // fillText('content',x,y)
+        // // content代表的是内容，x代表的是第一个字的x轴，y代表的是第一个字的y轴
+        // ctx.fillText('x轴',570,20)
+        
+        ctx.strokeStyle = 'blue'
+        // x轴
+        line(5,5,580,5)
+        line(570,0,580,5)
+        line(570,10,580,5)
+        ctx.fillText('x轴',570,20)
+        // 画y轴
+        line(5,5,5,380)
+        line(0,370,5,380)
+        line(10,370,5,380)
+        ctx.fillText('y轴',20,370)
+        // sx,sy,ex,ey表示的是开始和结束位置的坐标
+        function line(sx,sy,ex,ey){
+            ctx.beginPath()
+            ctx.moveTo(sx,sy)
+            ctx.lineTo(ex,ey)
+            ctx.stroke()
+            ctx.closePath()
+        }
+    </script>
+</body>
+</html>
